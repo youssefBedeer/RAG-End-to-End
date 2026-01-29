@@ -13,3 +13,4 @@ EMBEDDINGS_MODEL = "BAAI/bge-small-en-v1.5"
 
 # LLM 
 LLM_MODEL = "meta-llama/llama-3.1-8b-instruct"
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")

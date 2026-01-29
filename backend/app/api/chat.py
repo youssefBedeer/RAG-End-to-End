@@ -20,7 +20,7 @@ def chat_stream(question: str, session_id: str):
     messages = build_prompt(session_id, question)
 
     # Invoke graph before streaming
-    result = graph.invoke({"messages": messages})
+    result = graph.invoke({"messages": messages, "session_id": session_id})
     answer = result["answer"]
     
     # Extract text from AIMessage

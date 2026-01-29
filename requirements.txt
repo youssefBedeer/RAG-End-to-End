@@ -4,6 +4,8 @@ langchain
 langgraph 
 langchain-community
 langchain-text-splitters
+langchain-openai
+langchain-pinecone
 pinecone-client
 pypdf
 python-multipart
@@ -12,3 +14,6 @@ httpx
 tiktoken
 sse-starlette
 groq
+streamlit
+requests
+sentence-transformers

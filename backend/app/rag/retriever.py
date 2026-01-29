@@ -44,10 +44,11 @@ def create_index():
         )
         
         
-def get_vectorstore():
+def get_vectorstore(namespace:str):
     return PineconeVectorStore.from_existing_index(
         index_name=PINECONE_INDEX,
-        embedding=HuggingFaceEmbeddings(model_name=EMBEDDINGS_MODEL)
+        embedding=HuggingFaceEmbeddings(model_name=EMBEDDINGS_MODEL),
+        namespace=namespace
     )
     
 if __name__ == "__main__":

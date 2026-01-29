@@ -4,6 +4,7 @@ from .retriever import get_vectorstore
 from .generator import get_llm
 
 class RAGState(TypedDict):
+    session_id: str
     messages: List[Any]
     docs: List[Any]
     answer: Any
@@ -13,7 +14,6 @@ class RAGState(TypedDict):
 def build_rag_graph():
 
     llm = get_llm()
-    vectorstore = get_vectorstore()
     
     def extract_content(message):
     # LangChain message (AIMessage / HumanMessage)
@@ -36,6 +36,8 @@ def build_rag_graph():
         last_user_msg = state["messages"][-1]
         query = extract_content(last_user_msg)
 
+        vectorstore = get_vectorstore(namespace=state["session_id"])
+        
         docs = vectorstore.similarity_search(
             query,
             k=4
